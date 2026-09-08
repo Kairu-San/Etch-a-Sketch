@@ -3,7 +3,7 @@ const container = document.querySelector('#container');
 let gridSize = 16;
 
 function createGrid() {
-    
+
     const squareSize = 90 / gridSize;
 
     for (i = 0; i < gridSize; i++) {
@@ -28,7 +28,13 @@ createGrid();
 const newGrid = document.querySelector('#newButton');
 
 newGrid.addEventListener('click', () => {
+
     let newSize = prompt("New Grid Size:");
+    
+    while (newSize < 2 || newSize > 100) {
+        newSize  = prompt("Between 2 and 100 only");
+    }
+
     gridSize = newSize;
 
     container.innerHTML = "";
