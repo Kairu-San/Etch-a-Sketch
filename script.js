@@ -1,16 +1,37 @@
 const container = document.querySelector('#container');
 
-for (i = 0; i < 16; i++) {
-    for (j = 0; j < 16; j++) {
-        const grid = document.createElement('div');
-        grid.setAttribute("class", `square r${i+1} c${j+1}`);
+let gridSize = 16;
 
-        grid.addEventListener('mouseenter', ()=>{
-            grid.classList.add('hovered');
-        });
+function createGrid() {
+    
+    const squareSize = 90 / gridSize;
 
-        container.appendChild(grid); 
+    for (i = 0; i < gridSize; i++) {
+        for (j = 0; j < gridSize; j++) {
+            const grid = document.createElement('div');
+            grid.setAttribute("class", `square r${i + 1} c${j + 1}`);
+
+            grid.style.width = `${squareSize}vmin`;
+            grid.style.height = `${squareSize}vmin`;
+
+            grid.addEventListener('mouseenter', () => {
+                grid.classList.add('hovered');
+            });
+
+            container.appendChild(grid);
+        }
     }
 }
 
+createGrid();
+
+const newGrid = document.querySelector('#newButton');
+
+newGrid.addEventListener('click', () => {
+    let newSize = prompt("New Grid Size:");
+    gridSize = newSize;
+
+    container.innerHTML = "";
+    createGrid();
+});
 

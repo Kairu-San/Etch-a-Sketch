@@ -1,15 +1,17 @@
 * {
-    background-color: burlywood;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    background-color: burlywood;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    flex-direction: column;
+    gap: 2vmin;
 }
 
 #container {
@@ -17,7 +19,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 96vmin;
+    width: 90vmin;
+    height: 90vmin;
 }
 
 .square {
