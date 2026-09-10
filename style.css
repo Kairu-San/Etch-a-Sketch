@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: burlywood;
+    background-color: rgb(43, 43, 43);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,4 +32,25 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 1.5vmin;
+    transition: all 0.1s ease;
+}
+
+.square:hover {
+    transform: scale(1.2);
+}
+
+
+#newButton {
+    width: 15vmin;
+    height: 5vmin;
+    font-size: 3vmin;
+    background-color: rgb(156, 156, 156) ;
+    border-style: none;
+    border: solid 2px black;
+    transition: all 0.1s ease;
+}
+
+#newButton:hover {
+    background-color: rgb(201, 201, 201);
+    transform: scale(1.05);
 }
