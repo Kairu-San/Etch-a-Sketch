@@ -14,8 +14,12 @@ function createGrid() {
             grid.style.width = `${squareSize}vmin`;
             grid.style.height = `${squareSize}vmin`;
 
+            const randomR = Math.floor(Math.random() * 256);
+            const randomG = Math.floor(Math.random() * 256);
+            const randomB = Math.floor(Math.random() * 256);
+            
             grid.addEventListener('mouseenter', () => {
-                grid.classList.add('hovered');
+                grid.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
             });
 
             container.appendChild(grid);
