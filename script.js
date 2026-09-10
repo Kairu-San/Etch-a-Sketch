@@ -14,12 +14,15 @@ function createGrid() {
             grid.style.width = `${squareSize}vmin`;
             grid.style.height = `${squareSize}vmin`;
 
-            const randomR = Math.floor(Math.random() * 256);
-            const randomG = Math.floor(Math.random() * 256);
-            const randomB = Math.floor(Math.random() * 256);
-            
+
+            let opacity = 0.1;
+
             grid.addEventListener('mouseenter', () => {
-                grid.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+                const randomR = Math.floor(Math.random() * 256);
+                const randomG = Math.floor(Math.random() * 256);
+                const randomB = Math.floor(Math.random() * 256);
+                grid.style.backgroundColor = `rgba(${randomR}, ${randomG}, ${randomB}, ${opacity})`;
+                opacity += 0.1;
             });
 
             container.appendChild(grid);
@@ -34,9 +37,9 @@ const newGrid = document.querySelector('#newButton');
 newGrid.addEventListener('click', () => {
 
     let newSize = prompt("New Grid Size:");
-    
+
     while (newSize < 2 || newSize > 100) {
-        newSize  = prompt("Between 2 and 100 only");
+        newSize = prompt("Between 2 and 100 only");
     }
 
     gridSize = newSize;
