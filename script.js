@@ -1,10 +1,16 @@
 const container = document.querySelector('#container');
+const colorToggle = document.querySelector('#colorToggle');
+
+colorToggle.addEventListener('click', () => {
+    container.innerHTML = "";
+    createGrid();
+})
 
 let gridSize = 16;
 
 function createGrid() {
 
-    const squareSize = 90 / gridSize;
+    const squareSize = 80 / gridSize;
 
     for (let i = 0; i < gridSize; i++) {
         for (let j = 0; j < gridSize; j++) {
@@ -18,10 +24,15 @@ function createGrid() {
             let opacity = 0.1;
 
             grid.addEventListener('mouseenter', () => {
-                const randomR = Math.floor(Math.random() * 256);
-                const randomG = Math.floor(Math.random() * 256);
-                const randomB = Math.floor(Math.random() * 256);
-                grid.style.backgroundColor = `rgba(${randomR}, ${randomG}, ${randomB}, ${opacity})`;
+                if (colorToggle.checked) {
+                    const randomR = Math.floor(Math.random() * 256);
+                    const randomG = Math.floor(Math.random() * 256);
+                    const randomB = Math.floor(Math.random() * 256);
+                    grid.style.backgroundColor = `rgba(${randomR}, ${randomG}, ${randomB}, ${opacity})`;
+                }
+                else {
+                    grid.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+                }
                 opacity += 0.1;
             });
 
@@ -47,4 +58,5 @@ newGrid.addEventListener('click', () => {
     container.innerHTML = "";
     createGrid();
 });
+
 
