@@ -6,8 +6,8 @@ function createGrid() {
 
     const squareSize = 90 / gridSize;
 
-    for (i = 0; i < gridSize; i++) {
-        for (j = 0; j < gridSize; j++) {
+    for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
             const grid = document.createElement('div');
             grid.setAttribute("class", `square r${i + 1} c${j + 1}`);
 
